@@ -1,5 +1,6 @@
 package co.com.orange.hrm.automation.tests;
 
+import co.com.orange.hrm.automation.pages.AddEmployeePage;
 import co.com.orange.hrm.automation.pages.HomePage;
 import co.com.orange.hrm.automation.pages.IndexLoginPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -7,20 +8,21 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-
-import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
-public class IndexLoginTest {
+public class AddEmployeeTest {
     WebDriver driver;
-    WebDriverWait driverWait;
     IndexLoginPage indexLoginPage;
+    AddEmployeePage addEmployeePage;
+
     HomePage homePage;
 
     @BeforeMethod
@@ -38,22 +40,13 @@ public class IndexLoginTest {
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
 
-
-    @Test(priority = 0)
-    @Parameters({"user", "pass"})
-    public void validatingLoginCorrectly(String user, String pass) {
-        SoftAssert softAssert = new SoftAssert();
-        indexLoginPage.login(user, pass);
-        homePage = new HomePage(driver);
-        Assert.assertTrue(homePage.welcome());
-        //softAssert.assertTrue(homePage.welcome().contains("Paul Collings"));
-
-    }
-
     @Test(priority = 1)
-    public void validatingInvalidCredentials() {
-        indexLoginPage.login("user", "pass");
-        Assert.assertTrue(indexLoginPage.loginWrong().contains("Invalid credentials"));
+    @Parameters({"user", "pass"})
+    public void fillingOutEmployeeWithOutLoginDetails(String user, String pass) {
+        indexLoginPage.login(user, pass);
+        addEmployeePage = new AddEmployeePage(driver);
+        addEmployeePage.fillingOutNewEmployeeForm();
+        addEmployeePage.btnSave();
     }
 
     @AfterMethod
@@ -63,3 +56,5 @@ public class IndexLoginTest {
 
 
 }
+
+
