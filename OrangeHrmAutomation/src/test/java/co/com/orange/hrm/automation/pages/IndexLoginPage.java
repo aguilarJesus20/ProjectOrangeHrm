@@ -9,35 +9,53 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
 
 public class IndexLoginPage {
-    private WebDriver driver;
-    private WebDriverWait driverWait;
+    WebDriverWait wait;
 
-    @FindBy(how = How.NAME,using = "username")
+    @FindBy(how = How.XPATH, using = "//div[contains(@class,'orangehrm-demo-credentials')]/child::p")
+    private List<WebElement> txtUserData;
+
+
+    @FindBy(how = How.NAME, using = "username")
     private WebElement userName;
 
-    @FindBy(how = How.NAME,using = "password")
+    @FindBy(how = How.NAME, using = "password")
     private WebElement password;
 
-    @FindBy(how=How.XPATH,using = "//button[@type='submit']")
+    @FindBy(how = How.XPATH, using = "//button[@type='submit']")
     private WebElement btnLogin;
-    @FindBy(how=How.XPATH,using = "//div/p[@class='oxd-text oxd-text--p oxd-alert-content-text']")
+    @FindBy(how = How.XPATH, using = "//div/p[@class='oxd-text oxd-text--p oxd-alert-content-text']")
     private WebElement invalidCredentials;
 
-    public IndexLoginPage(WebDriver driver){
-        PageFactory.initElements(driver,this);
+
+    public IndexLoginPage(WebDriver driver) {
+        PageFactory.initElements(driver, this);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(15));
     }
 
-    public void login(String user,String pass){
-        userName.sendKeys(user);
-        password.sendKeys(pass);
-        btnLogin.click();
+    public void login(String user, String pass) {
+        wait.until(ExpectedConditions.visibilityOf(userName)).sendKeys(user);
+        wait.until(ExpectedConditions.visibilityOf(password)).sendKeys(pass);
+        wait.until(ExpectedConditions.elementToBeClickable(btnLogin)).click();
+
     }
-    public String loginWrong(){
-      //  driverWait = new WebDriverWait(driver, Duration.ofSeconds(10));
-      //  driverWait.until(ExpectedConditions.visibilityOf(invalidCredentials));
+
+    public String loginWrong() {
+        //  driverWait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        //  driverWait.until(ExpectedConditions.visibilityOf(invalidCredentials));
         return invalidCredentials.getText();
+    }
+
+    public ArrayList<String> getUserInfo() {
+
+        ArrayList<String> data = new ArrayList<>();
+        for (WebElement userData : txtUserData) {
+            data.add(userData.getText().substring(userData.getText().indexOf(":") + 1).strip());
+        }
+        return data;
     }
 
 
