@@ -1,9 +1,10 @@
+/*
 package co.com.orange.hrm.automation.tests;
 
 import co.com.orange.hrm.automation.pages.IndexLoginPage;
 import co.com.orange.hrm.automation.pages.admin.adduser.SaveSystemUser;
-import co.com.orange.hrm.automation.pages.main.HomePage;
-import co.com.orange.hrm.automation.pages.main.MainMenuPage;
+import co.com.orange.hrm.automation.pages.HomePage;
+import co.com.orange.hrm.automation.pages.MainMenuPage;
 import co.com.orange.hrm.automation.utils.Hook;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -26,7 +27,12 @@ public class ViewSystemUsersTest extends Hook {
     public void creatingANewUserAdmin(){
         mainMenuPage.menuItems("Admin");
         homePage.addSystemUser();
+        saveSystemUser.clickingUserRole();
         saveSystemUser.selectingUserRole("Admin");
+        saveSystemUser.ClickingEmployeeName("Paul");
+        saveSystemUser.selectingEmployeeName("Paul");
+        System.out.println("NO ES");
 
     }
 }
+*/

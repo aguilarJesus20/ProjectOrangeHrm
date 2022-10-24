@@ -1,6 +1,7 @@
+/*
 package co.com.orange.hrm.automation.tests;
 
-import co.com.orange.hrm.automation.pages.main.HomePage;
+import co.com.orange.hrm.automation.pages.HomePage;
 import co.com.orange.hrm.automation.pages.IndexLoginPage;
 import co.com.orange.hrm.automation.pages.pim.addemployee.AddEmployeePage;
 import co.com.orange.hrm.automation.pages.pim.addemployee.CreateLoginDetailsSubPage;
@@ -53,6 +54,28 @@ public class AddEmployeeTest extends Hook {
         createLoginDetailsSubPage.passwordLoginDetails("12");
         Assert.assertEquals(createLoginDetailsSubPage.errorMessage(), ErrorMessagesEnum.AT_LEAST_EIGHT_PASS.getObjMessage());
     }
+     @Test
+    public void writingAWeakPassword() {
+        homePage.addEmployeeOption();
+        addEmployeePage.clickOnCreateLoginDetails();
+        createLoginDetailsSubPage.passwordLoginDetails("test2021");
+        Assert.assertEquals(createLoginDetailsSubPage.errorMessage(), ErrorMessagesEnum.WEAK_PASSWORD.getObjMessage());
+    }
+     @Test
+    public void passwordEmpty() {
+        homePage.addEmployeeOption();
+        addEmployeePage.clickOnCreateLoginDetails();
+        createLoginDetailsSubPage.passwordLoginDetails("  ");
+        Assert.assertEquals(createLoginDetailsSubPage.errorMessage(), ErrorMessagesEnum.REQUIRED.getObjMessage());
+    }
+    @Test
+    public void confirmPasswordNotMatch() {
+        homePage.addEmployeeOption();
+        addEmployeePage.clickOnCreateLoginDetails();
+        createLoginDetailsSubPage.passwordLoginDetails("Test2021@");
+        createLoginDetailsSubPage.confirmPasswordDetails("test");
+        Assert.assertEquals(createLoginDetailsSubPage.errorMessage(), ErrorMessagesEnum.PASSWORD_NOT_MATCH.getObjMessage());
+    }
 
     @Test
     public void userNameLessThanPermitted() {
@@ -70,13 +93,7 @@ public class AddEmployeeTest extends Hook {
         Assert.assertEquals(createLoginDetailsSubPage.errorMessage(), ErrorMessagesEnum.EXCEED_CHARACTERS.getObjMessage());
     }
 
-    @Test
-    public void writingAWeakPassword() {
-        homePage.addEmployeeOption();
-        addEmployeePage.clickOnCreateLoginDetails();
-        createLoginDetailsSubPage.passwordLoginDetails("test2021");
-        Assert.assertEquals(createLoginDetailsSubPage.errorMessage(), ErrorMessagesEnum.WEAK_PASSWORD.getObjMessage());
-    }
+
 
     @Test
     public void userNameEmpty() {
@@ -86,24 +103,12 @@ public class AddEmployeeTest extends Hook {
         Assert.assertEquals(createLoginDetailsSubPage.errorMessage(), ErrorMessagesEnum.REQUIRED.getObjMessage());
     }
 
-    @Test
-    public void passwordEmpty() {
-        homePage.addEmployeeOption();
-        addEmployeePage.clickOnCreateLoginDetails();
-        createLoginDetailsSubPage.passwordLoginDetails("  ");
-        Assert.assertEquals(createLoginDetailsSubPage.errorMessage(), ErrorMessagesEnum.REQUIRED.getObjMessage());
-    }
 
-    @Test
-    public void confirmPasswordNotMatch() {
-        homePage.addEmployeeOption();
-        addEmployeePage.clickOnCreateLoginDetails();
-        createLoginDetailsSubPage.passwordLoginDetails("Test2021@");
-        createLoginDetailsSubPage.confirmPasswordDetails("test");
-        Assert.assertEquals(createLoginDetailsSubPage.errorMessage(), ErrorMessagesEnum.PASSWORD_NOT_MATCH.getObjMessage());
-    }
+
+
 
 
 }
 
 
+*/
