@@ -1,4 +1,4 @@
-package co.com.orange.hrm.automation.pages.main;
+package co.com.orange.hrm.automation.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,18 +10,17 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.List;
 
-public class MainMenuPage {
+public class MainMenuPage extends BasePage{
     WebDriverWait wait;
     @FindBy(how = How.CSS, using = ".oxd-main-menu>li")
     private List<WebElement> menuOptions;
 
-
     public MainMenuPage(WebDriver driver) {
-        PageFactory.initElements(driver, this);
-        wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        super(driver);
     }
 
-    public void menuItems(String opt) {
+
+    public void selectingMenuItems(String opt) {
         for (WebElement item : menuOptions) {
             if (item.getText().equals(opt)) {
                 item.click();

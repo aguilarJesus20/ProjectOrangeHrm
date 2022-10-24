@@ -1,5 +1,6 @@
 package co.com.orange.hrm.automation.pages.pim.addemployee;
 
+import co.com.orange.hrm.automation.pages.BasePage;
 import co.com.orange.hrm.automation.utils.Utility;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,9 +14,8 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CreateLoginDetailsSubPage {
+public class CreateLoginDetailsSubPage extends BasePage {
 
-    WebDriverWait wait;
     @FindBy(how = How.CSS, using = ".oxd-radio-input.oxd-radio-input--active.--label-right.oxd-radio-input")
     private List<WebElement> status;
 
@@ -26,10 +26,8 @@ public class CreateLoginDetailsSubPage {
     @FindBy(how = How.CSS, using = ".oxd-text.oxd-text--span.oxd-input-field-error-message.oxd-input-group__message")
     private WebElement errorMessage;
 
-
     public CreateLoginDetailsSubPage(WebDriver driver) {
-        PageFactory.initElements(driver, this);
-        wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        super(driver);
     }
 
     public void userStatus(String opt) {
