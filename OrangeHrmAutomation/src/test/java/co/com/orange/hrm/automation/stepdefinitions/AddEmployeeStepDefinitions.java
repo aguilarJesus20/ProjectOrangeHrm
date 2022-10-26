@@ -1,15 +1,13 @@
 package co.com.orange.hrm.automation.stepdefinitions;
 
 import co.com.orange.hrm.automation.builders.EmployeeInformationBuilder;
-import co.com.orange.hrm.automation.builders.LoginDetailsFormBuilder;
-import co.com.orange.hrm.automation.utils.ErrorMessagesEnum;
-import co.com.orange.hrm.automation.utils.UserDataEnum;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
 
 import static co.com.orange.hrm.automation.builders.EmployeeInformationBuilder.getEmployeeData;
+import static co.com.orange.hrm.automation.builders.LoginDetailsFormBuilder.getInfo;
 
 public class AddEmployeeStepDefinitions extends TestBase {
 
@@ -31,9 +29,8 @@ public class AddEmployeeStepDefinitions extends TestBase {
     @When("he enters login details information")
     public void heEntersLoginDetailsInformation() {
         addEmployeePage.clickOnCreateLoginDetails();
-        loginDetails = LoginDetailsFormBuilder.withUserNameLogin(UserDataEnum.LOGIN_DETAILS_USER_NAME.getLoginDetails()).withPasswordLogin(UserDataEnum.LOGIN_DETAILS_PASSWORD.getInfo()).build();
         loginDetailsSubPage.userStatus("Disable");
-        loginDetailsSubPage.fillingOutLogin(loginDetails.getUserNameLogin(), loginDetails.getPasswordLogin());
+        loginDetailsSubPage.fillingOutLogin(getInfo());
     }
 
     @When("he enters his first name {string}")
