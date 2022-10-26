@@ -6,7 +6,7 @@ public class IndexLoginBuilder {
     private String userName;
     private String password;
 
-    public IndexLoginBuilder(String userName) {
+      public IndexLoginBuilder(String userName) {
         this.userName = userName;
     }
 
@@ -19,8 +19,9 @@ public class IndexLoginBuilder {
         return this;
     }
 
-    public IndexLoginModel build() {
+    public IndexLoginModel buildLogin() {
         return new IndexLoginModel(userName, password);
     }
+
 
 }

@@ -1,16 +1,14 @@
 package co.com.orange.hrm.automation.pages.pim.addemployee;
 
+import co.com.orange.hrm.automation.models.LoginDetailsFormModel;
 import co.com.orange.hrm.automation.pages.BasePage;
 import co.com.orange.hrm.automation.utils.Utility;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,11 +32,11 @@ public class CreateLoginDetailsSubPage extends BasePage {
         wait.until(ExpectedConditions.elementToBeClickable(status.get(Utility.getStatus(opt)))).click();
     }
 
-    public void fillingOutLogin(String userName, String password) {
+    public void fillingOutLogin(LoginDetailsFormModel login) {
         ArrayList<String> data = new ArrayList<>();
-        data.add(userName);
-        data.add(password);
-        data.add(password);
+        data.add(login.getUserNameLogin());
+        data.add(login.getPasswordLogin());
+        data.add(login.getPasswordLogin());
         for (int i = 0; i < txtData.size(); i++) {
             txtData.get(i).sendKeys(data.get(i));
         }

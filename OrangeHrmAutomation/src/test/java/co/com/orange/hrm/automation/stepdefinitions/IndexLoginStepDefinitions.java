@@ -18,8 +18,7 @@ public class IndexLoginStepDefinitions extends TestBase {
 
     @When("he enters username and password correctly")
     public void heEntersUsernameAndPasswordCorrectly() {
-        loginModel = IndexLoginBuilder.withName(loginPage.getUserInfo().get(0)).andPassword(loginPage.getUserInfo().get(1)).build();
-        loginPage.login(loginModel);
+        loginPage.login(IndexLoginBuilder.withName(loginPage.getUserInfo().get(0)).andPassword(loginPage.getUserInfo().get(1)).buildLogin());
     }
 
     @When("click Sign-in")
@@ -29,10 +28,8 @@ public class IndexLoginStepDefinitions extends TestBase {
 
     @When("he enters username {string} and password {string} incorrect")
     public void heEntersUsernameAndPasswordIncorrect(String userName, String password) {
-        loginModel = IndexLoginBuilder.withName(userName).andPassword(password).build();
-        loginPage.login(loginModel);
+        loginPage.login(IndexLoginBuilder.withName(userName).andPassword(password).buildLogin());
     }
-
 
 
     @Then("He will see the main page")

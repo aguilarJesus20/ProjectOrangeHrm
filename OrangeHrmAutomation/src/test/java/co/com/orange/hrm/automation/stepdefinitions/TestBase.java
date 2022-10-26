@@ -1,11 +1,9 @@
 package co.com.orange.hrm.automation.stepdefinitions;
 
-import co.com.orange.hrm.automation.models.EmployeeInformationModel;
-import co.com.orange.hrm.automation.models.IndexLoginModel;
-import co.com.orange.hrm.automation.models.LoginDetailsFormModel;
 import co.com.orange.hrm.automation.pages.HomePage;
 import co.com.orange.hrm.automation.pages.IndexLoginPage;
 import co.com.orange.hrm.automation.pages.MainMenuPage;
+import co.com.orange.hrm.automation.pages.admin.ViewSystemUsersPage;
 import co.com.orange.hrm.automation.pages.admin.addsystemuser.AddSystemUserPage;
 import co.com.orange.hrm.automation.pages.pim.addemployee.AddEmployeePage;
 import co.com.orange.hrm.automation.pages.pim.addemployee.CreateLoginDetailsSubPage;
@@ -21,15 +19,16 @@ public class TestBase {
     public HomePage homePage = new HomePage(driver);
     public AddEmployeePage addEmployeePage = new AddEmployeePage(driver);
     public CreateLoginDetailsSubPage loginDetailsSubPage = new CreateLoginDetailsSubPage(driver);
-    public EmployeeInformationModel employeeInformation;
     public CreateLoginDetailsSubPage createLoginDetailsSubPage = new CreateLoginDetailsSubPage(driver);
-    public IndexLoginModel loginModel;
+
     public IndexLoginPage loginPage = new IndexLoginPage(driver);
-    public LoginDetailsFormModel loginDetails;
+
 
     public SearchEmployeePage searchEmployeePage = new SearchEmployeePage(driver);
 
     public MainMenuPage menuPage = new MainMenuPage(driver);
 
     public AddSystemUserPage systemUserPage = new AddSystemUserPage(driver);
+
+    public ViewSystemUsersPage viewSystemUsersPage = new ViewSystemUsersPage(driver);
 }

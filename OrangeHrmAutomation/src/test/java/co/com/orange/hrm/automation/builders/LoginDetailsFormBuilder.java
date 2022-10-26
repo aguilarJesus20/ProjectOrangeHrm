@@ -1,6 +1,5 @@
 package co.com.orange.hrm.automation.builders;
 
-import co.com.orange.hrm.automation.models.IndexLoginModel;
 import co.com.orange.hrm.automation.models.LoginDetailsFormModel;
 import co.com.orange.hrm.automation.utils.UserDataEnum;
 
@@ -35,5 +34,9 @@ public class LoginDetailsFormBuilder {
 
     public LoginDetailsFormModel build() {
         return new LoginDetailsFormModel(userNameLogin, status, passwordLogin, confirmPasswordLogin);
+    }
+
+    public static LoginDetailsFormModel getInfo() {
+        return LoginDetailsFormBuilder.withUserNameLogin(UserDataEnum.LOGIN_DETAILS_USER_NAME.getLoginDetails()).withPasswordLogin(UserDataEnum.LOGIN_DETAILS_PASSWORD.getInfo()).build();
     }
 }

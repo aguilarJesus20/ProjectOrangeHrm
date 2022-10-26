@@ -5,6 +5,6 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(features = {"src/test/resources/features/add_an_employee.feature"}
         , glue = {"co.com.orange.hrm.automation.stepdefinitions"}
-        , snippets = CucumberOptions.SnippetType.CAMELCASE, publish = true)
+        , snippets = CucumberOptions.SnippetType.CAMELCASE)
 public class AddEmployeeRunners extends AbstractTestNGCucumberTests {
 }
