@@ -17,7 +17,7 @@ public class CreateLoginDetailsSubPage extends BasePage {
     @FindBy(how = How.CSS, using = ".oxd-radio-input.oxd-radio-input--active.--label-right.oxd-radio-input")
     private List<WebElement> status;
 
-    @FindBy(how = How.CSS, using = "[autocomplete='off'")
+    @FindBy(how = How.CSS, using = "[autocomplete='off']")
     private List<WebElement> txtData;
 
 

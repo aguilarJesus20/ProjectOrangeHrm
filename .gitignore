@@ -21,3 +21,4 @@ buildNumber.properties
 .project
 .settings/
 
+OrangeHrmAutomation/resources/cucumber-reports/cucumber.html

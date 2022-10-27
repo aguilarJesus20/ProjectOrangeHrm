@@ -42,7 +42,7 @@ public class IndexLoginPage extends BasePage {
     public ArrayList<String> getUserInfo() {
         ArrayList<String> data = new ArrayList<>();
         for (WebElement userData : txtUserData) {
-            data.add(userData.getText().substring(userData.getText().indexOf(":") + 1).strip());
+            data.add(userData.getText().substring(userData.getText().indexOf(":") + 1).trim());
         }
         return data;
     }

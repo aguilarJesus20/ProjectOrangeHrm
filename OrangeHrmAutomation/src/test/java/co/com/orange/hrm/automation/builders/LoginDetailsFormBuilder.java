@@ -17,17 +17,17 @@ public class LoginDetailsFormBuilder {
         return new LoginDetailsFormBuilder(userNameLogin);
     }
 
-    public LoginDetailsFormBuilder withStatus(String status) {
+    public LoginDetailsFormBuilder andWithStatus(String status) {
         this.status = status;
         return this;
     }
 
-    public LoginDetailsFormBuilder withPasswordLogin(String passwordLogin) {
+    public LoginDetailsFormBuilder andWithPasswordLogin(String passwordLogin) {
         this.passwordLogin = passwordLogin;
         return this;
     }
 
-    public LoginDetailsFormBuilder withReconfirmPasswordLogin(String confirmPasswordLogin) {
+    public LoginDetailsFormBuilder andWithReconfirmPasswordLogin(String confirmPasswordLogin) {
         this.confirmPasswordLogin = confirmPasswordLogin;
         return this;
     }
@@ -36,7 +36,8 @@ public class LoginDetailsFormBuilder {
         return new LoginDetailsFormModel(userNameLogin, status, passwordLogin, confirmPasswordLogin);
     }
 
-    public static LoginDetailsFormModel getInfo() {
-        return LoginDetailsFormBuilder.withUserNameLogin(UserDataEnum.LOGIN_DETAILS_USER_NAME.getLoginDetails()).withPasswordLogin(UserDataEnum.LOGIN_DETAILS_PASSWORD.getInfo()).build();
+    public static LoginDetailsFormModel getInfo(String status) {
+        return LoginDetailsFormBuilder.withUserNameLogin(UserDataEnum.LOGIN_DETAILS_USER_NAME.getLoginDetails()).andWithPasswordLogin(UserDataEnum.LOGIN_DETAILS_PASSWORD.getInfo()
+                ,).build();
     }
 }

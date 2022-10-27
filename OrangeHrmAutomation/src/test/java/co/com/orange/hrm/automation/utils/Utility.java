@@ -3,7 +3,7 @@ package co.com.orange.hrm.automation.utils;
 public class Utility {
 
     public static String getUrl() {
-        return System.getenv("url");
+        return System.getProperty("url");
     }
 
     public static int getStatus(String opt) {
