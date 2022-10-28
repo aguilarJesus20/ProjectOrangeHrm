@@ -33,6 +33,7 @@ public class CreateLoginDetailsSubPage extends BasePage {
     }
 
     public void fillingOutLogin(LoginDetailsFormModel login) {
+        userStatus(login.getStatus());
         ArrayList<String> data = new ArrayList<>();
         data.add(login.getUserNameLogin());
         data.add(login.getPasswordLogin());

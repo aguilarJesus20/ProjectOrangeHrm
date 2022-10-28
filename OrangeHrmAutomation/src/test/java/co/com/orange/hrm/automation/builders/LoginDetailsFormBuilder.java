@@ -37,7 +37,6 @@ public class LoginDetailsFormBuilder {
     }
 
     public static LoginDetailsFormModel getInfo(String status) {
-        return LoginDetailsFormBuilder.withUserNameLogin(UserDataEnum.LOGIN_DETAILS_USER_NAME.getLoginDetails()).andWithPasswordLogin(UserDataEnum.LOGIN_DETAILS_PASSWORD.getInfo()
-                ,).build();
+        return LoginDetailsFormBuilder.withUserNameLogin(UserDataEnum.LOGIN_DETAILS_USER_NAME.getLoginDetails()).andWithPasswordLogin(UserDataEnum.LOGIN_DETAILS_PASSWORD.getInfo()).andWithStatus(status).build();
     }
 }

@@ -26,12 +26,12 @@ public class AddEmployeeStepDefinitions extends TestBase {
         addEmployeePage.btnSaveEmployee();
     }
 
-    @When("he enters login details information")
-    public void heEntersLoginDetailsInformation() {
+    @When("he enters login details information with status {string}")
+    public void heEntersLoginDetailsInformationWithStatus(String status) {
         addEmployeePage.clickOnCreateLoginDetails();
-        loginDetailsSubPage.userStatus("Disable");
-        loginDetailsSubPage.fillingOutLogin(getInfo());
+        loginDetailsSubPage.fillingOutLogin(getInfo(status));
     }
+
 
     @When("he enters his first name {string}")
     public void heEntersHisFirstName(String firstName) {

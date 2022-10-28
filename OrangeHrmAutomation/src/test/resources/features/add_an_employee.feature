@@ -17,7 +17,7 @@ Feature: Create a new employee
   Scenario: Creating an employee with login details
     Given the user clicking on addEmployee option
     When he enters his personal information
-    And he enters login details information
+    And he enters login details information with status "disable"
     And click on button save
     Then He will see the message on page "Success"
 
