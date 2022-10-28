@@ -7,6 +7,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
 
+import static co.com.orange.hrm.automation.builders.IndexLoginBuilder.*;
 import static co.com.orange.hrm.automation.stepdefinitions.Hook.getUrl;
 
 public class IndexLoginStepDefinitions extends TestBase {
@@ -18,7 +19,7 @@ public class IndexLoginStepDefinitions extends TestBase {
 
     @When("he enters username and password correctly")
     public void heEntersUsernameAndPasswordCorrectly() {
-        loginPage.login(IndexLoginBuilder.withName(loginPage.getUserInfo().get(0)).andPassword(loginPage.getUserInfo().get(1)).buildLogin());
+        loginPage.login(withName(loginPage.getUserInfo().get(0)).andPassword(loginPage.getUserInfo().get(1)).buildLogin());
     }
 
     @When("click Sign-in")
@@ -28,7 +29,7 @@ public class IndexLoginStepDefinitions extends TestBase {
 
     @When("he enters username {string} and password {string} incorrect")
     public void heEntersUsernameAndPasswordIncorrect(String userName, String password) {
-        loginPage.login(IndexLoginBuilder.withName(userName).andPassword(password).buildLogin());
+        loginPage.login(withName(userName).andPassword(password).buildLogin());
     }
 
 
