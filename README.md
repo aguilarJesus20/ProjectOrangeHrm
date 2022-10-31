@@ -23,7 +23,7 @@ mvn clean install
 mvn clean test -Durl=https://opensource-demo.orangehrmlive.com/web/index.php/auth/login 
 
 #Reportes
-Al momento de ejecutar este proyecto el sistema creará un reporte de los casos ejecutados en la ruta
+Al momento de ejecutar este proyecto el sistema creará un reporte de los casos ejecutados en la rutas
 ./target/surefire-reports
 ./target/cucumber-reports
 
