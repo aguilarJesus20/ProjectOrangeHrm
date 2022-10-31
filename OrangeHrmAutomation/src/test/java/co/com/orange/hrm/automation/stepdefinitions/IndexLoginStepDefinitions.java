@@ -22,11 +22,6 @@ public class IndexLoginStepDefinitions extends TestBase {
         loginPage.login(withName(loginPage.getUserInfo().get(0)).andPassword(loginPage.getUserInfo().get(1)).buildLogin());
     }
 
-    @When("click Sign-in")
-    public void clickSignIn() {
-        loginPage.clickingSignIn();
-    }
-
     @When("he enters username {string} and password {string} incorrect")
     public void heEntersUsernameAndPasswordIncorrect(String userName, String password) {
         loginPage.login(withName(userName).andPassword(password).buildLogin());

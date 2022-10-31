@@ -4,6 +4,7 @@ public enum SystemUserEnum {
 
     EMPLOYEE_NAME("Jordan"), SYSTEM_USER_NAME("JA20"), SYSTEM_PASSWORD("Test2022@"), SYSTEM_CONFIRM_PASS("Test2022@");
 
+
     private String data;
 
     SystemUserEnum(String data) {

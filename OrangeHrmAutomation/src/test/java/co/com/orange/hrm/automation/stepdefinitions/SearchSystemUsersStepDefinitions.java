@@ -9,10 +9,6 @@ public class SearchSystemUsersStepDefinitions extends TestBase {
     @When("he write his information {string}")
     public void heWriteHisInformation(String name) {
         viewSystemUsersPage.writingUserName(name);
-    }
-
-    @When("he clicks on search button")
-    public void heClicksOnSearchButton() {
         viewSystemUsersPage.clickingOnBtnSearch();
     }
 
@@ -25,12 +21,15 @@ public class SearchSystemUsersStepDefinitions extends TestBase {
     public void heSelectHisUserRoleAnd(String userRole, String userName) {
         viewSystemUsersPage.writingUserName(userName);
         systemUserPage.selectingUserRole(userRole);
+        viewSystemUsersPage.clickingOnBtnSearch();
+
     }
 
     @When("he select his status information {string} and {string}")
     public void heSelectHisStatusInformationAnd(String status, String userName) {
         viewSystemUsersPage.writingUserName(userName);
         systemUserPage.selectingStatusEmployee(status);
+        viewSystemUsersPage.clickingOnBtnSearch();
     }
 
 

@@ -33,12 +33,8 @@ public class IndexLoginPage extends BasePage {
     public void login(IndexLoginModel login) {
         wait.until(ExpectedConditions.visibilityOf(txtUserName)).sendKeys(login.getUserName());
         wait.until(ExpectedConditions.visibilityOf(txtPassword)).sendKeys(login.getPassword());
-    }
-
-    public void clickingSignIn() {
         wait.until(ExpectedConditions.elementToBeClickable(btnLogin)).click();
     }
-
     public ArrayList<String> getUserInfo() {
         ArrayList<String> data = new ArrayList<>();
         for (WebElement userData : txtUserData) {

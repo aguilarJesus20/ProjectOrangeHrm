@@ -12,14 +12,9 @@ public class SearchEmployeeStepDefinitions extends TestBase {
         searchEmployeePage.searchByEmployeeId(employeeId);
     }
 
-    @When("click on search button")
-    public void clickOnSearchButton() {
+    @When("the user search her in the system")
+    public void theUserSearchHerInTheSystem() {
         searchEmployeePage.clickingSearchButton();
-    }
-
-    @Then("the user will see the basic employee information about {string}")
-    public void theUserWillSeeTheBasicEmployeeInformationAbout(String employeeName) {
-        Assert.assertTrue(searchEmployeePage.getEmployeeName().contains(employeeName));
     }
 
 
@@ -33,6 +28,12 @@ public class SearchEmployeeStepDefinitions extends TestBase {
     public void theUserTypesHisName(String name) {
         searchEmployeePage.typingEmployeeName(name);
         searchEmployeePage.selectingOption(name);
+    }
+
+
+    @Then("the user will see the basic employee information about {string}")
+    public void theUserWillSeeTheBasicEmployeeInformationAbout(String employeeName) {
+        Assert.assertTrue(searchEmployeePage.getEmployeeName().contains(employeeName));
     }
 
 

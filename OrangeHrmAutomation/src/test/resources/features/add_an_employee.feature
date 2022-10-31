@@ -5,25 +5,25 @@ Feature: Create a new employee
   Background:
     Given the user is on the main page
     When he enters username and password correctly
-    And click Sign-in
 
   Scenario:Creating an employee correctly without login details
-    Given the user clicking on addEmployee option
+    Given the user is on the "PIM" menu option
+    And the user adds a new Employee
     When he enters his personal information
-    And click on button save
     Then He will see the message on page "Success"
 
 
   Scenario: Creating an employee with login details
-    Given the user clicking on addEmployee option
+    Given the user is on the "PIM" menu option
+    And the user adds a new Employee
     When he enters his personal information
     And he enters login details information with status "disable"
-    And click on button save
     Then He will see the message on page "Success"
 
 
   Scenario Outline: Validating the message error Exceed is showing up on the new employee form page
-    Given the user clicking on addEmployee option
+    Given the user is on the "PIM" menu option
+    And the user adds a new Employee
     When he enters his "<firstName>" "<middleName>" "<lastName>" personal information
     Then he should see the message error "<message>"
     Examples:
@@ -33,7 +33,7 @@ Feature: Create a new employee
       | Carlos                              | Pablo                               | OctubreOctubreOctubreOctubreOctubre | Should not exceed 30 characters |
 
   Scenario Outline: Validating the message error on Create Login Details Form Password Field
-    Given the user clicking on addEmployee option
+    And the user adds a new Employee
     When he enters password "<password>" login details form
     Then he should see the message error "<message>"
     Examples:

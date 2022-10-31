@@ -13,13 +13,9 @@ public class AddSystemUserStepDefinitions extends TestBase {
     }
 
 
-    @Given("he click on Add System user button")
-    public void heClickOnAddSystemUserButton() {
-        systemUserPage.clickAddSystemButton();
-    }
-
     @When("he fill in the system user form with {string} and status {string}")
     public void heFillInTheSystemUserFormWithAndStatus(String userRole, String status) {
+        systemUserPage.clickAddSystemButton();
         systemUserPage.fillInSystemUserForm(getInfoSystemUser(userRole, status));
     }
 

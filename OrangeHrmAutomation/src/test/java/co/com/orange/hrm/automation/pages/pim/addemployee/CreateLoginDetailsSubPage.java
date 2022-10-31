@@ -44,7 +44,7 @@ public class CreateLoginDetailsSubPage extends BasePage {
     }
 
     public void passwordLoginDetails(String password) {
-        txtData.get(1).sendKeys(password);
+        wait.until(ExpectedConditions.visibilityOf(txtData.get(1))).sendKeys(password);
     }
 
     public void confirmPasswordDetails(String password) {
