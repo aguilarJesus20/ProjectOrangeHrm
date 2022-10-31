@@ -83,7 +83,7 @@ public class AddSystemUserPage extends BasePage {
     }
 
     public void writingPassword(String password) {
-        wait.until(ExpectedConditions.visibilityOf(messageError).andThen(message ->
+        wait.until(ExpectedConditions.visibilityOf(messageError).andThen(messageError ->
                 wait.until(ExpectedConditions.invisibilityOf(messageError))));
         wait.until(ExpectedConditions.visibilityOf(txtPassword)).sendKeys(password);
 

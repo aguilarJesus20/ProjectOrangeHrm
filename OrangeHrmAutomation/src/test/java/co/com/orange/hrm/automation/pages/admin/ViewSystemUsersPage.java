@@ -34,6 +34,7 @@ public class ViewSystemUsersPage extends BasePage {
 
     public void writingUserName(String name) {
         wait.until(ExpectedConditions.visibilityOf(txtUserName)).sendKeys(name);
+
     }
 
     public void clickingOnBtnSearch() {

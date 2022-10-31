@@ -17,7 +17,7 @@ public class CreateLoginDetailsSubPage extends BasePage {
     @FindBy(how = How.CSS, using = ".oxd-radio-input.oxd-radio-input--active.--label-right.oxd-radio-input")
     private List<WebElement> status;
 
-    @FindBy(how = How.CSS, using = "[autocomplete='off'")
+    @FindBy(how = How.CSS, using = "[autocomplete='off']")
     private List<WebElement> txtData;
 
 
@@ -33,6 +33,7 @@ public class CreateLoginDetailsSubPage extends BasePage {
     }
 
     public void fillingOutLogin(LoginDetailsFormModel login) {
+        userStatus(login.getStatus());
         ArrayList<String> data = new ArrayList<>();
         data.add(login.getUserNameLogin());
         data.add(login.getPasswordLogin());
@@ -43,7 +44,7 @@ public class CreateLoginDetailsSubPage extends BasePage {
     }
 
     public void passwordLoginDetails(String password) {
-        txtData.get(1).sendKeys(password);
+        wait.until(ExpectedConditions.visibilityOf(txtData.get(1))).sendKeys(password);
     }
 
     public void confirmPasswordDetails(String password) {

@@ -11,27 +11,24 @@ import static co.com.orange.hrm.automation.builders.LoginDetailsFormBuilder.getI
 
 public class AddEmployeeStepDefinitions extends TestBase {
 
-    @Given("the user clicking on addEmployee option")
-    public void theUserClickingOnAddEmployeeOption() {
+    @Given("the user adds a new Employee")
+    public void theUserAddsANewEmployee() {
         homePage.addEmployeeOption();
     }
+
 
     @When("he enters his personal information")
     public void heEntersHisPersonalInformation() {
         addEmployeePage.fillingOutNewEmployeeForm(getEmployeeData());
     }
 
-    @When("click on button save")
-    public void clickOnButtonSave() {
-        addEmployeePage.btnSaveEmployee();
+
+    @When("he enters login details information with status {string}")
+    public void heEntersLoginDetailsInformationWithStatus(String status) {
+        addEmployeePage.clickOnCreateLoginDetails();
+        loginDetailsSubPage.fillingOutLogin(getInfo(status));
     }
 
-    @When("he enters login details information")
-    public void heEntersLoginDetailsInformation() {
-        addEmployeePage.clickOnCreateLoginDetails();
-        loginDetailsSubPage.userStatus("Disable");
-        loginDetailsSubPage.fillingOutLogin(getInfo());
-    }
 
     @When("he enters his first name {string}")
     public void heEntersHisFirstName(String firstName) {
@@ -51,6 +48,7 @@ public class AddEmployeeStepDefinitions extends TestBase {
 
     @Then("He will see the message on page {string}")
     public void heWillSeeTheMessageOnPage(String message) {
+        addEmployeePage.btnSaveEmployee();
         Assert.assertTrue(addEmployeePage.successfulSaveEmployee().contains(message));
     }
 
