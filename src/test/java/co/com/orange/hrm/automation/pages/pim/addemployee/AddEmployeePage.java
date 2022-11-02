@@ -66,6 +66,7 @@ public class AddEmployeePage extends BasePage {
 
 
     public String successfulSaveEmployee() {
+
         wait.until(ExpectedConditions.visibilityOf(successfulSaveEmployee));
         return successfulSaveEmployee.getText();
     }

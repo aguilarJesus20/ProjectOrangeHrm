@@ -12,8 +12,8 @@ public class SearchEmployeeStepDefinitions extends TestBase {
         searchEmployeePage.searchByEmployeeId(employeeId);
     }
 
-    @When("the user search her in the system")
-    public void theUserSearchHerInTheSystem() {
+    @When("the user search his information in the system")
+    public void theUserSearchHisInformationInTheSystem() {
         searchEmployeePage.clickingSearchButton();
     }
 

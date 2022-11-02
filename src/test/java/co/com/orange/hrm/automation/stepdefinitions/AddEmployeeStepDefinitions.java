@@ -46,9 +46,15 @@ public class AddEmployeeStepDefinitions extends TestBase {
         createLoginDetailsSubPage.passwordLoginDetails(password);
     }
 
+
+    @When("the system saves his information")
+    public void theSystemSavesHisInformation() {
+        addEmployeePage.btnSaveEmployee();
+    }
+
+
     @Then("He will see the message on page {string}")
     public void heWillSeeTheMessageOnPage(String message) {
-        addEmployeePage.btnSaveEmployee();
         Assert.assertTrue(addEmployeePage.successfulSaveEmployee().contains(message));
     }
 

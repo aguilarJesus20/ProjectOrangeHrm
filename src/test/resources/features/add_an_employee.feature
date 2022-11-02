@@ -10,6 +10,7 @@ Feature: Create a new employee
     Given the user is on the "PIM" menu option
     And the user adds a new Employee
     When he enters his personal information
+    And the system saves his information
     Then He will see the message on page "Success"
 
 
@@ -18,6 +19,7 @@ Feature: Create a new employee
     And the user adds a new Employee
     When he enters his personal information
     And he enters login details information with status "disable"
+    And the system saves his information
     Then He will see the message on page "Success"
 
 

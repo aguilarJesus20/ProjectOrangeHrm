@@ -99,7 +99,8 @@ public class AddSystemUserPage extends BasePage {
     }
 
 
-    public void fillInSystemUserForm(AddSystemUserModel systemUser){
+    public void
+    fillInSystemUserForm(AddSystemUserModel systemUser){
         selectingUserRole(systemUser.getUserRole());
         selectingEmployeeName(systemUser.getEmployeeName());
         selectingStatusEmployee(systemUser.getStatus());
