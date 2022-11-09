@@ -34,4 +34,7 @@ public class TestBase {
     public ViewSystemUsersPage viewSystemUsersPage = new ViewSystemUsersPage(driver);
 
     public ViewCandidatesPage viewCandidatesPage = new ViewCandidatesPage(driver);
+
+
+
 }

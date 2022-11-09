@@ -30,6 +30,7 @@ public class AddEmployeePage extends BasePage {
     @FindBy(css = ".oxd-text.oxd-text--p.oxd-text--toast-title.oxd-toast-content-text")
     private WebElement successfulSaveEmployee;
 
+
     @FindBy(css = ".oxd-text.oxd-text--span.oxd-input-field-error-message.oxd-input-group__message")
     private WebElement errorMessage;
 
@@ -64,11 +65,9 @@ public class AddEmployeePage extends BasePage {
         wait.until(ExpectedConditions.elementToBeClickable(createLoginDetails)).click();
     }
 
-
     public String successfulSaveEmployee() {
+        return wait.until(ExpectedConditions.visibilityOf(successfulSaveEmployee).andThen(text -> text.getText()));
 
-        wait.until(ExpectedConditions.visibilityOf(successfulSaveEmployee));
-        return successfulSaveEmployee.getText();
     }
 
     public String errorMessage() {

@@ -1,6 +1,6 @@
 package co.com.orange.hrm.automation.pages.recruitement;
 
-import co.com.orange.hrm.automation.models.VacancyDataTable;
+import co.com.orange.hrm.automation.models.VacancyModels;
 import co.com.orange.hrm.automation.pages.BasePage;
 import co.com.orange.hrm.automation.utils.RandomNum;
 import org.openqa.selenium.WebDriver;
@@ -10,6 +10,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.time.Duration;
 import java.util.List;
+import java.util.NoSuchElementException;
+
 
 public class ViewCandidatesPage extends BasePage {
     @FindBy(css = ".oxd-topbar-body-nav-tab-item")
@@ -42,6 +44,13 @@ public class ViewCandidatesPage extends BasePage {
     @FindBy(css = "[type='submit']")
     private WebElement clickOnButtonSaveVacancy;
 
+    @FindBy(xpath = "//*[contains(text(),'Successfully Saved')]")
+    private WebElement successMessage;
+
+    @FindBy(css = ".oxd-text.oxd-text--h6.orangehrm-main-title.orangehrm-attachment-header__title")
+    private WebElement attach;
+
+
     public ViewCandidatesPage(WebDriver driver) {
         super(driver);
     }
@@ -59,13 +68,13 @@ public class ViewCandidatesPage extends BasePage {
         wait.until(ExpectedConditions.visibilityOf(addVacancyButton)).click();
     }
 
-     public void fillOutAddVacancyForm(VacancyDataTable data) {
+    public void fillOutAddVacancyForm(VacancyModels data) {
         wait.until(ExpectedConditions.visibilityOf(vacancyName)).sendKeys(data.getVacancyName().concat(String.valueOf(RandomNum.randomNumber())));
         selectingJobTitle(data.getJobTitle());
         wait.until(ExpectedConditions.visibilityOf(txtDescription)).sendKeys(data.getDescription());
         selectingHiringManager(data.getHiringManager());
-        wait.until(ExpectedConditions.visibilityOf(txtNumberPosition)).sendKeys(data.getNumberPosition());
-        //loadingSpinnerWait();
+        wait.until(ExpectedConditions.visibilityOf(txtNumberPosition)).sendKeys(data.getNumberPositions());
+
     }
 
     public void selectingHiringManager(String name) {
@@ -91,15 +100,14 @@ public class ViewCandidatesPage extends BasePage {
         genericMethod(nameRole);
     }
 
-    public void loadingSpinnerWait() {
-        loadingSpinner.isDisplayed();
-        wait.until(ExpectedConditions.invisibilityOf(loadingSpinner));
+    public Boolean loadingSpinnerWait()  {
+        clickOnButtonSaveVacancy.click();
+        return wait.withMessage("attach").withTimeout(Duration.ofSeconds(30)).pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class).until(ExpectedConditions.visibilityOf(attach)).isDisplayed();
+
     }
 
     public void clickingOnSaveVacancy() {
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        wait.until(ExpectedConditions.elementToBeClickable(clickOnButtonSaveVacancy)).click();
-
+        wait.until(ExpectedConditions.visibilityOf(clickOnButtonSaveVacancy)).click();
     }
 
 

@@ -6,8 +6,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.function.Function;
 
 public class IndexLoginPage extends BasePage {
 
@@ -35,6 +38,7 @@ public class IndexLoginPage extends BasePage {
         wait.until(ExpectedConditions.visibilityOf(txtPassword)).sendKeys(login.getPassword());
         wait.until(ExpectedConditions.elementToBeClickable(btnLogin)).click();
     }
+
     public ArrayList<String> getUserInfo() {
         ArrayList<String> data = new ArrayList<>();
         for (WebElement userData : txtUserData) {

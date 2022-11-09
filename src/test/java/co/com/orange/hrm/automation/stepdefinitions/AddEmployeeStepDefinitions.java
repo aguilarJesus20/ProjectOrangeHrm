@@ -55,7 +55,8 @@ public class AddEmployeeStepDefinitions extends TestBase {
 
     @Then("He will see the message on page {string}")
     public void heWillSeeTheMessageOnPage(String message) {
-        Assert.assertTrue(addEmployeePage.successfulSaveEmployee().contains(message));
+       Assert.assertTrue(addEmployeePage.successfulSaveEmployee().contains(message));
+
     }
 
     @Then("he should see the message error {string}")
