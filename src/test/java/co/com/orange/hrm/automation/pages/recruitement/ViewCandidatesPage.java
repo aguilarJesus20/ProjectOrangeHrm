@@ -3,6 +3,8 @@ package co.com.orange.hrm.automation.pages.recruitement;
 import co.com.orange.hrm.automation.models.VacancyModels;
 import co.com.orange.hrm.automation.pages.BasePage;
 import co.com.orange.hrm.automation.utils.RandomNum;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -50,6 +52,7 @@ public class ViewCandidatesPage extends BasePage {
     @FindBy(css = ".oxd-text.oxd-text--h6.orangehrm-main-title.orangehrm-attachment-header__title")
     private WebElement attach;
 
+    private static final Logger logger = LogManager.getLogger(ViewCandidatesPage.class);
 
     public ViewCandidatesPage(WebDriver driver) {
         super(driver);
@@ -100,10 +103,9 @@ public class ViewCandidatesPage extends BasePage {
         genericMethod(nameRole);
     }
 
-    public Boolean loadingSpinnerWait()  {
+    public String validatingText() {
         clickOnButtonSaveVacancy.click();
-        return wait.withMessage("attach").withTimeout(Duration.ofSeconds(30)).pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class).until(ExpectedConditions.visibilityOf(attach)).isDisplayed();
-
+        return wait.withMessage("attach").withTimeout(Duration.ofSeconds(30)).pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class).until(ExpectedConditions.visibilityOf(attach)).getText();
     }
 
     public void clickingOnSaveVacancy() {

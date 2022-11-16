@@ -1,4 +1,4 @@
-package co.com.orange.hrm.automation.stepdefinitions;
+package co.com.orange.hrm.automation.stepdefinition;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;

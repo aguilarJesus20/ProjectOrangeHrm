@@ -1,6 +1,7 @@
-package co.com.orange.hrm.automation.stepdefinitions;
+package co.com.orange.hrm.automation.stepdefinition;
 
-import co.com.orange.hrm.automation.exceptions.NotFoundElement;
+
+import co.com.orange.hrm.automation.exceptions.AssertionErrorCustomize;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -12,8 +13,8 @@ import java.util.List;
 
 import static co.com.orange.hrm.automation.builders.DataVacancyBuilder.withVacancy;
 
-public class CreateVacancyStepDefinitions extends TestBase {
-    private static final Logger logger = LogManager.getLogger(CreateVacancyStepDefinitions.class);
+public class CreateVacancyStepDefinition extends TestBase {
+    private static final Logger logger = LogManager.getLogger(CreateVacancyStepDefinition.class);
 
     @When("the user fill out the {string} form")
     public void theUserFillOutTheForm(String subOption, DataTable table) {
@@ -26,13 +27,17 @@ public class CreateVacancyStepDefinitions extends TestBase {
 
     @Then("the user will see {string} on page")
     public void theUserWillSeeOnPage(String string) {
+
+
+    }
+
+    @Then("the user will see {string} word on page")
+    public void theUserWillSeeWordOnPage(String message) throws AssertionErrorCustomize {
         try {
-            Assert.assertFalse(viewCandidatesPage.loadingSpinnerWait());
-
+            Assert.assertTrue((viewCandidatesPage.validatingText().contains(message)));
         } catch (AssertionError e) {
-            logger.error("Asserts with error 'Success message' {}", e.getMessage());
+            throw new AssertionErrorCustomize(e).errorMessage();
         }
-
     }
 
 }
