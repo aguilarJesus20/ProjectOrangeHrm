@@ -105,7 +105,7 @@ public class ViewCandidatesPage extends BasePage {
 
     public String validatingText() {
         clickOnButtonSaveVacancy.click();
-        return wait.withMessage("attach").withTimeout(Duration.ofSeconds(30)).pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class).until(ExpectedConditions.visibilityOf(attach)).getText();
+            return wait.withMessage("attach").withTimeout(Duration.ofSeconds(30)).pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class).until(ExpectedConditions.visibilityOf(attach)).getText();
     }
 
     public void clickingOnSaveVacancy() {

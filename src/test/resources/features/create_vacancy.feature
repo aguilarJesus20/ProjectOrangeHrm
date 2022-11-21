@@ -9,6 +9,6 @@ Feature: As a user I want to create or add a new vacancy in the Orange Hrm Syste
     When the user fill out the "Vacancies" form
       | vacancyName   | jobTitle          | description    | hiringManager | numberPositions |
       | Test Engineer | Software Engineer | AutomationTest | a    | 3               |
-    Then the user will see "z" word on page
+    Then the user will see "Attachments" word on page
 
 
