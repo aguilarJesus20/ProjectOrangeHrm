@@ -26,6 +26,7 @@ public class CreateVacancyStepDefinition extends TestBase {
             Assert.assertTrue((viewCandidatesPage.validatingText().contains(message)));
         } catch (AssertionErrorCustomize e) {
             throw new AssertionErrorCustomize(e).errorMessage();
+
         }
     }
 
