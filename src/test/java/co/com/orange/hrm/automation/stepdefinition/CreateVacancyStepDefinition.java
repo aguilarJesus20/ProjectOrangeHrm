@@ -18,6 +18,7 @@ public class CreateVacancyStepDefinition extends TestBase {
         viewCandidatesPage.selectingSubMenuOptions(subOption);
         viewCandidatesPage.clickingOnAddVacancy();
         viewCandidatesPage.fillOutAddVacancyForm(withVacancy(dataVacancy.get(0)).withVacancyName().withJobTitle().withDescription().withHiringManager().withNumberPositions().buildVacancyData());
+        
     }
 
     @Then("the user will see {string} word on page")
