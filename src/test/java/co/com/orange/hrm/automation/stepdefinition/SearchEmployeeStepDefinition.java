@@ -1,19 +1,19 @@
-package co.com.orange.hrm.automation.stepdefinitions;
+package co.com.orange.hrm.automation.stepdefinition;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
 
-public class SearchEmployeeStepDefinitions extends TestBase {
+public class SearchEmployeeStepDefinition extends TestBase {
 
     @Given("the user types his employee id {string}")
     public void theUserTypesHisEmployeeId(String employeeId) {
         searchEmployeePage.searchByEmployeeId(employeeId);
     }
 
-    @When("the user search her in the system")
-    public void theUserSearchHerInTheSystem() {
+    @When("the user search his information in the system")
+    public void theUserSearchHisInformationInTheSystem() {
         searchEmployeePage.clickingSearchButton();
     }
 

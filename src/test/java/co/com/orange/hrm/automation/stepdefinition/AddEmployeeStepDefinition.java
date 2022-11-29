@@ -1,4 +1,4 @@
-package co.com.orange.hrm.automation.stepdefinitions;
+package co.com.orange.hrm.automation.stepdefinition;
 
 import co.com.orange.hrm.automation.builders.EmployeeInformationBuilder;
 import io.cucumber.java.en.Given;
@@ -9,7 +9,7 @@ import org.testng.Assert;
 import static co.com.orange.hrm.automation.builders.EmployeeInformationBuilder.getEmployeeData;
 import static co.com.orange.hrm.automation.builders.LoginDetailsFormBuilder.getInfo;
 
-public class AddEmployeeStepDefinitions extends TestBase {
+public class AddEmployeeStepDefinition extends TestBase {
 
     @Given("the user adds a new Employee")
     public void theUserAddsANewEmployee() {
@@ -46,10 +46,17 @@ public class AddEmployeeStepDefinitions extends TestBase {
         createLoginDetailsSubPage.passwordLoginDetails(password);
     }
 
+
+    @When("the system saves his information")
+    public void theSystemSavesHisInformation() {
+        addEmployeePage.btnSaveEmployee();
+    }
+
+
     @Then("He will see the message on page {string}")
     public void heWillSeeTheMessageOnPage(String message) {
-        addEmployeePage.btnSaveEmployee();
-        Assert.assertTrue(addEmployeePage.successfulSaveEmployee().contains(message));
+       Assert.assertTrue(addEmployeePage.successfulSaveEmployee().contains(message));
+
     }
 
     @Then("he should see the message error {string}")

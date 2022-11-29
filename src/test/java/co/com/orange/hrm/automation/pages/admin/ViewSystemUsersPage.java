@@ -44,8 +44,6 @@ public class ViewSystemUsersPage extends BasePage {
     public void loadingSpinnerWait() {
         loadingSpinner.isDisplayed();
         wait.until(ExpectedConditions.invisibilityOf(loadingSpinner));
-
-
     }
 
     public Boolean getEmployeeName() {

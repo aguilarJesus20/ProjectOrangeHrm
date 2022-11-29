@@ -1,4 +1,4 @@
-package co.com.orange.hrm.automation.stepdefinitions;
+package co.com.orange.hrm.automation.stepdefinition;
 
 import co.com.orange.hrm.automation.pages.HomePage;
 import co.com.orange.hrm.automation.pages.IndexLoginPage;
@@ -8,9 +8,10 @@ import co.com.orange.hrm.automation.pages.admin.addsystemuser.AddSystemUserPage;
 import co.com.orange.hrm.automation.pages.pim.addemployee.AddEmployeePage;
 import co.com.orange.hrm.automation.pages.pim.addemployee.CreateLoginDetailsSubPage;
 import co.com.orange.hrm.automation.pages.pim.addemployee.SearchEmployeePage;
+import co.com.orange.hrm.automation.pages.recruitement.ViewCandidatesPage;
 import org.openqa.selenium.WebDriver;
 
-import static co.com.orange.hrm.automation.stepdefinitions.Hook.getDriver;
+import static co.com.orange.hrm.automation.stepdefinition.Hook.getDriver;
 
 public class TestBase {
     public WebDriver driver = getDriver();
@@ -31,4 +32,9 @@ public class TestBase {
     public AddSystemUserPage systemUserPage = new AddSystemUserPage(driver);
 
     public ViewSystemUsersPage viewSystemUsersPage = new ViewSystemUsersPage(driver);
+
+    public ViewCandidatesPage viewCandidatesPage = new ViewCandidatesPage(driver);
+
+
+
 }

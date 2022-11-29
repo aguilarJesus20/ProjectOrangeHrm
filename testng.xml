@@ -3,7 +3,7 @@
 <suite name="SuiteAll">
     <test name="TestAll">
         <packages>
-            <package name="co.com.orange.hrm.automation.runners"/>
+            <package name="co.com.orange.hrm.automation.runner"/>
         </packages>
     </test>
 </suite>

@@ -1,10 +1,10 @@
-package co.com.orange.hrm.automation.stepdefinitions;
+package co.com.orange.hrm.automation.stepdefinition;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
 
-public class SearchSystemUsersStepDefinitions extends TestBase {
+public class SearchSystemUsersStepDefinition extends TestBase {
 
     @When("he write his information {string}")
     public void heWriteHisInformation(String name) {
