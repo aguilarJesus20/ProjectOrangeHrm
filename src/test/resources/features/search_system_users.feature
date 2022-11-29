@@ -3,9 +3,8 @@ Feature: As user I want to search system users
   Background:
     Given the user is on the main page
     When he enters username and password correctly
-
-  Scenario Outline: I want to search an user into system users by <userName>
     Given the user is on the "Admin" menu option
+  Scenario Outline: I want to search an user into system users by <userName>
     When he write his information "<userName>"
     Then he should see his personal information "<name>"
     Examples:
@@ -14,7 +13,6 @@ Feature: As user I want to search system users
 
 
   Scenario Outline: I want to search an user into system users by <userRole> and <userName>
-    Given the user is on the "Admin" menu option
     When he select his userRole "<userRole>" and "<userName>"
     Then he should see his personal information "<nameTable>"
     Examples:
@@ -22,7 +20,6 @@ Feature: As user I want to search system users
       | Admin        | Admin    | Richard Collings |
 
   Scenario Outline: I want to search an user into system users by status "<status>" and "<userName>"
-    Given the user is on the "Admin" menu option
     When he select his status information "<status>" and "<userName>"
     Then he should see his personal information "<nameTable>"
     Examples:
